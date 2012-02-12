@@ -19,9 +19,9 @@ urlpatterns = patterns('',
 	url(r'^login/$', 'django.contrib.auth.views.login'),
 	url(r'^logout/$', logout_page),
 	url(r'^register/$', register_page),
-	url(r'^register/success/$', direct_to_template, {'template': 'registration/register_success.html'})
+	url(r'^register/success/$', direct_to_template, {'template': 'registration/register_success.html'}),
 	
-#	url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static_content}),
+	url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static_content, 'show_indexes': True}),
     
     # Examples:
     # url(r'^$', 'jeff.views.home', name='home'),
@@ -30,5 +30,4 @@ urlpatterns = patterns('',
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
-    # Uncomment the next line to enable the admin:
 )
