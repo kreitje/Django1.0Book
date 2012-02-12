@@ -1,8 +1,9 @@
 from django.conf.urls.defaults import patterns, include, url
+from django.views.generic.simple import direct_to_template
 from bookmarks.views import *
 import os
 
-static_content = os.path.join(os.path.dirname(__file__), 'site_media')
+static_content = os.path.join(os.path.dirname(__file__), 'static')
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -17,8 +18,10 @@ urlpatterns = patterns('',
 
 	url(r'^login/$', 'django.contrib.auth.views.login'),
 	url(r'^logout/$', logout_page),
+	url(r'^register/$', register_page),
+	url(r'^register/success/$', direct_to_template, {'template': 'registration/register_success.html'})
 	
-	url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static_content}),
+#	url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root': static_content}),
     
     # Examples:
     # url(r'^$', 'jeff.views.home', name='home'),

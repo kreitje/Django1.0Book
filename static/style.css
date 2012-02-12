@@ -2,3 +2,4 @@ body { }
 p { font-size:12px; }
 
 #nav { float:right; }
+input { display:block; }
