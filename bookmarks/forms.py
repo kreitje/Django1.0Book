@@ -37,3 +37,24 @@ class RegistrationForm(forms.Form):
 			return username
 			
 		raise forms.ValidationError('Username is already taken!')
+		
+class BookmarkSaveForm(forms.Form):
+	url = forms.URLField(
+		label=u'URL',
+		widget=forms.TextInput(attrs={'size': 64})
+	)
+	title = forms.CharField(
+		label=u'Title',
+		widget=forms.TextInput(attrs={'size':64})
+	)
+	tags = forms.CharField(
+		label=u'Tags',
+		required=False,
+		widget=forms.TextInput(attrs={'size': 64})
+	)
+	
+class SearchForm(forms.Form):
+	query = forms.CharField(
+		label=u'Enter a keyword to search for',
+		widget=forms.TextInput(attrs={'size':32})
+	)
